@@ -12,7 +12,7 @@ export async function middleware(req:NextRequest, ev:NextFetchEvent){
        
         console.log("full next url", req.nextUrl)
     
-        const data = await (await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`)).json();
+        const data = await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`)
         console.log("data?", data)
         if(data?.url){
             return NextResponse.redirect(data.url); 
